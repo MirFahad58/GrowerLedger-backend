@@ -1,0 +1,10 @@
+node_modules 
+.env
+.vscode
+coverage
+upload
+ngrok.exe
+.babelrc
+dist
+test
+README.md

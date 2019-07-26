@@ -6,7 +6,7 @@ import {
   } from "../../config/constants";
 
 exports.addUser = async fields => {
-  fields.phoneVerificationStatus = ACCOUNT_STATUS[1];
+  fields.phoneVerificationStatus = ACCOUNT_STATUS[0];
   fields.accountStatus = ACCOUNT_STATUS[0];
   fields.twoWayAuthentication = TWO_WAY_AUTHENTICATION[1];
   let newUser = new UserWebPortal(fields);

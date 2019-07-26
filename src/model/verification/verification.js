@@ -10,7 +10,7 @@ const { ObjectId } = Types;
 const verification = new Schema({
   user : {
     type : ObjectId ,
-    ref : "UserWebPortal || UserBroker || UserDriver" ,
+    ref : "UserWebPortal" ,
     required : true
   } ,
   verificationCode : [

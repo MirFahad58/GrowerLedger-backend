@@ -28,6 +28,10 @@ const userWebPortal = new Schema({
     required : true
   } ,
   password : { type : String , required : true , validate : validate.isPassword() } ,
+  account:{
+    type : Number ,
+    default:0,
+  } ,
   phoneNumber : {
     type : String ,
     unique : true ,
@@ -49,13 +53,14 @@ const userWebPortal = new Schema({
   twoWayAuthentication : { type : Boolean , enum : TWO_WAY_AUTHENTICATION } ,
   accountCreatedDate : { type : Date , required : true } ,
   type : { type : String , enum : ACCOUNT_TYPE } ,
-  growers : [{ type : ObjectId , ref : "Growers" }] ,
-  parties : [{ type : ObjectId , ref : "Parties" }] ,
-  orders : [{ type : ObjectId , ref : "Orders" }] ,
-  deletedGrowers : [{ type : ObjectId , ref : "Growers" }] ,
-  deletedParties : [{ type : ObjectId , ref : "Parties" }] ,
-  deletedOrders : [{ type : ObjectId , ref : "Orders" }] ,
-  tokens : [{ type : String }] ,
+  growers : [{ type : ObjectId , ref : "Grower" }] ,
+  parties : [{ type : ObjectId , ref : "Party" }] ,
+  orders : [{ type : ObjectId , ref : "Order" }] ,
+  accountLedger:[{type:ObjectId,ref:"accountLedger"}],
+  deletedGrowers : [{ type : ObjectId , ref : "Grower" }] ,
+  deletedParties : [{ type : ObjectId , ref : "Party" }] ,
+  deletedOrders : [{ type : ObjectId , ref : "Order" }] ,
+  jwtToken : { type : String } ,
 });
 
 // Encrypt Password before saving data to model

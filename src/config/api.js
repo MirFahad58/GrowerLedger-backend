@@ -16,6 +16,9 @@ const api = express();
 api.use("/portal",
 require("../components/portal/unAuth"));
 
+// api.use("/portal",checkAuth("UserWebPortal"),
+// require("../components/portal/unAuth"));
+
 // General API's
 // api.use("/general" , require("../components/general/general"));
 

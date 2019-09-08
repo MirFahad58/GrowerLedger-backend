@@ -34,11 +34,11 @@ app.get("/" , (req , res) => {
 // Using all API
 app.use(api);
 
-// Error Handling Middleware For Joi Celebrate
-app.use(celebrate);
+// // Error Handling Middleware For Joi Celebrate
+// app.use(celebrate);
 
 // Error Handling Middleware For all API's
 app.use(error);
-5
+
 // Exporting App
 export { app };

@@ -1,4 +1,6 @@
 import { UserWebPortal } from "../../model/user/userWebPortal";
+import { grower } from "../../model/grower/grower";
+
 import To from "await-to-js";
 import {
     ACCOUNT_STATUS ,
@@ -13,6 +15,21 @@ exports.addUser = async fields => {
   const [err, user] = await To(newUser.save());
   return { err, user };
 };
+
+
+exports.addGrower = async fields => {
+  let newGrower = new grower(fields);
+  const [err, addGrower] = await To(newGrower.save());
+  return { err, addGrower };
+};
+
+exports.updateUser = async (query,fields) =>
+{
+  // {$addToSet:{growers:ObjectId}}
+  const [err,user] = await To(UserWebPortal.findOneAndUpdate(query,fields));
+  return {err,user}
+} 
+
 
 exports.getUser = async query => {
   const [err, user] = await To(UserWebPortal.findOne(query));

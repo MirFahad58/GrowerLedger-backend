@@ -89,3 +89,8 @@ exports.addAccountLedger = async fields => {
   const [err, addAccountLedger] = await To(newAccountLedger.save());
   return { err, addAccountLedger };
 };
+
+exports.getAllAccountLedger = async query => {
+  const [err, accountAll] = await To(accountledger.find(query));
+  return { err, accountAll };
+};

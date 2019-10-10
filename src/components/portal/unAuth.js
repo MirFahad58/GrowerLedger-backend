@@ -145,4 +145,20 @@ router.post("/addAccountLedger", async (req, res, next) => {
   }
 });
 
+//get all parties by Type
+router.get("/accountLedgerAll", async (req, res, next) => {
+  const { userId,id } = req.body;
+  const { err, accountAll } = await service.getAllAccountLedger({
+    userId: { $eq: ObjectId(userId) },
+    PartyOrGrower:{$eq:ObjectId(id)}
+  });
+  if (err) next(err);
+  else if (accountAll.length) {
+    res.status(200).json(accountAll)
+    // res.send(accountAll);
+  }else{
+    res.status(400).json({message:"No account Found"})
+  }
+});
+
 module.exports = router;
